@@ -69,3 +69,5 @@ RUN conda install --quiet --yes -c conda-forge ipywidgets && \
 RUN pip install numpy scipy matplotlib pandas ipywidgets && \
     jupyter nbextension enable --py widgetsnbextension && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager
+    
+RUN rm -r /home/jovyan/work && git clone https://github.com/mathematicalmichael/jupyter_demo && mv jupyter_demo/*.ipynb . && rm -rf /home/jovyan/jupyter_demo
