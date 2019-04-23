@@ -7,10 +7,13 @@ RUN apt-get update && \
         octave-symbolic octave-miscellaneous \
         python-sympy \
         gnuplot ghostscript && \
-        fonts-humor-sans && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-    
+
+# Downloading and installing Humor-Sans
+RUN curl -v -o Humor-Sans-1.0.ttf http://antiyawn.com/uploads/Humor-Sans-1.0.ttf
+RUN mkdir --parents /usr/local/share/fonts/; mv Humor*.ttf /usr/local/share/fonts/Humor-Sans-1.0.ttf
+
 # R pre-requisites
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
